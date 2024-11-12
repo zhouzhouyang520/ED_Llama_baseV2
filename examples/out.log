@@ -1,0 +1,156 @@
+/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+10/12/2024 01:11:13 - INFO - llamafactory.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, compute dtype: None
+[INFO|configuration_utils.py:731] 2024-10-12 01:11:13,829 >> loading configuration file ../models/Falcon_11b/config.json
+[ERROR|dynamic_module_utils.py:323] 2024-10-12 01:11:23,856 >> Could not locate the configuration_falcon.py inside tiiuae/falcon-11B.
+Traceback (most recent call last):
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1096, in _validate_conn
+    conn.connect()
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connection.py", line 218, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1511b99273d0>: Failed to establish a new connection: [Errno 101] Network is unreachable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /tiiuae/falcon-11B/resolve/main/configuration_falcon.py (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1511b99273d0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1751, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1673, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 376, in _request_wrapper
+    response = _request_wrapper(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 399, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 66, in send
+    return super().send(request, *args, **kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: (MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /tiiuae/falcon-11B/resolve/main/configuration_falcon.py (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1511b99273d0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"), '(Request ID: 8dcf6ab0-772c-4611-9ccb-8116ff513e7a)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/utils/hub.py", line 402, in cached_file
+    resolved_file = hf_hub_download(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/utils/_deprecation.py", line 101, in inner_f
+    return f(*args, **kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1240, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1347, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1857, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.utils._errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/examples/../src/train.py", line 28, in <module>
+    main()
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/examples/../src/train.py", line 19, in main
+    run_exp()
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/src/llamafactory/train/tuner.py", line 50, in run_exp
+    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/src/llamafactory/train/sft/workflow.py", line 44, in run_sft
+    tokenizer_module = load_tokenizer(model_args)
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/src/llamafactory/model/loader.py", line 69, in load_tokenizer
+    config = load_config(model_args)
+  File "/siflow/workspace/workspace_yz/Llama/Llama/Llama_base/src/llamafactory/model/loader.py", line 122, in load_config
+    return AutoConfig.from_pretrained(model_args.model_name_or_path, **init_kwargs)
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 981, in from_pretrained
+    config_class = get_class_from_dynamic_module(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 502, in get_class_from_dynamic_module
+    final_module = get_cached_module_file(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/dynamic_module_utils.py", line 306, in get_cached_module_file
+    resolved_module_file = cached_file(
+  File "/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/transformers/utils/hub.py", line 445, in cached_file
+    raise EnvironmentError(
+OSError: We couldn't connect to 'https://huggingface.co' to load this file, couldn't find it in the cached files and it looks like tiiuae/falcon-11B is not the path to a directory containing a file named configuration_falcon.py.
+Checkout your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/siflow/workspace/software/anaconda3/envs/llama_factory/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+              precision    recall  f1-score   support
+
+           0       0.44      0.42      0.43       266
+           1       0.17      0.62      0.27       186
+           2       0.32      0.68      0.44       186
+           3       0.32      0.75      0.45       200
+           4       0.32      0.42      0.37       170
+           5       0.29      0.77      0.43       179
+           6       0.32      0.65      0.43       203
+           7       0.89      0.47      0.61       161
+           8       0.74      0.33      0.46       165
+           9       0.35      0.38      0.36       152
+          10       0.78      0.57      0.66       174
+          11       0.49      0.19      0.27       156
+          12       0.59      0.11      0.19       143
+          13       0.33      0.52      0.40       165
+          14       0.23      0.59      0.33       157
+          15       0.40      0.47      0.43       167
+          16       0.20      0.34      0.25       169
+          17       0.75      0.02      0.04       157
+          18       0.61      0.46      0.52       137
+          19       0.38      0.02      0.04       141
+          20       0.46      0.69      0.55       159
+          21       0.95      0.41      0.57       169
+          22       0.00      0.00      0.00       154
+          23       0.81      0.50      0.62       164
+          24       0.69      0.12      0.21       162
+          25       0.77      0.07      0.13       140
+          26       0.62      0.03      0.05       189
+          27       0.94      0.10      0.18       164
+          28       0.67      0.03      0.06       134
+          29       0.37      0.18      0.25       137
+          30       0.50      0.01      0.03       146
+          31       0.60      0.03      0.06       103
+
+    accuracy                           0.36      5255
+   macro avg       0.51      0.34      0.31      5255
+weighted avg       0.50      0.36      0.33      5255
+
+emo_count: 1942.0, emo_total: 5255.0, rate: 36.95528068506185, macro_f1: 31.437128568827056
+***** Distinct-1: 100.0 *****
+***** Distinct-2: 100.0 *****
+Dist-1: 1.0, Dist-2: 1.0
