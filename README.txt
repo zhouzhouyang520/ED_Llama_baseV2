@@ -9,7 +9,7 @@ To run this code, you should：
 git clone https://github.com/zhouzhouyang520/ED_Llama_baseV2.git
 ```
 
-2. Make the directory 'models' and put LLM model file into it:
+2. Make the directory 'models' and put LLM directory with model files (e.g., ChatGLM3/) into it:
 ```
 mkdir models/
 ```
